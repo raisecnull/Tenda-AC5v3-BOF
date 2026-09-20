@@ -19,7 +19,6 @@ The `setWifi` handler in the AC5v3 web management interface `fails to validate t
 ![](https://yzdhzjjwtsjwhabhuksf.supabase.co/storage/v1/object/public/assets/blog/ac5/PC.png)
 
 5. stack dump is saturated with the 41414141 pattern across dozens of registers/stack slots.
-![](https://yzdhzjjwtsjwhabhuksf.supabase.co/storage/v1/object/public/assets/blog/ac5/1.png)
 ![](https://yzdhzjjwtsjwhabhuksf.supabase.co/storage/v1/object/public/assets/blog/ac5/2.png)
 
 **Persistent NVRAM Corruption**
