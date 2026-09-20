@@ -6,9 +6,11 @@
 - `Privileges Required`: Authenticated (admin session) — the request requires a valid session `cookie` containing the `admin` credentials, so this is a `post-authentication vulnerability`, not pre-auth remote.
 
 **Description**
+
 The `setWifi` handler in the AC5v3 web management interface `fails to validate the length` of the `wifiPwd` parameter before copying it into a fixed-size stack buffer. An authenticated attacker (or an attacker who has otherwise obtained a valid admin session, credential theft, or a separate auth bypass) can submit an oversized wifiPwd value to corrupt stack memory and gain control of the program counter.
 
 **Proof Of Concept**
+
 1. POST /goform/setWifi HTTP/1.1 to 192.168.0.1, sent via Burp Suite Repeater, with a valid authenticated session cookie
 2. wifiPwd= followed by ~500+ bytes of 0x41 (A) padding, alongside the other required setWifi form fields
 3. HTTP layer returns 200 OK, {"errCode":"0"} — no input validation rejection
