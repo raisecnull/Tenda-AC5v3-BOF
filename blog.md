@@ -29,7 +29,11 @@ Memory analysis at address `0x80001400` shows the injected `wifiPwd` value overw
 This corruption persists across reboots as the device re-parses the malformed NVRAM block on every boot. This elevates the vulnerability from a transient denial-of-service to a **persistent** one; recovery likely requires a factory reset or manual NVRAM wipe. It also raises the possibility that a precisely crafted payload could target adjacent NVRAM fields for corruption beyond a simple crash.
 
 **Impact**
+
+
 This vulnerability allows an authenticated attacker to overwrite the program counter on the device's MIPS processor, which is very likely exploitable for remote code execution given demonstrated instruction-pointer control. Independently, the confirmed NVRAM corruption causes persistent denial-of-service — the device fails to boot cleanly and re-crashes on every restart, likely requiring a factory reset to recover. This dual impact (potential RCE + persistent DoS surviving reboot) distinguishes this finding from typical transient stack-overflow crashes in this device family.
 
 **Suggested Remediation**
+
+
 Vendor should implement server-side length validation on the `wifiPwd` parameter in the `setWifi` handler prior to copying it into any fixed-size buffer, and apply equivalent bounds-checking to the corresponding NVRAM write path for `wl0_wpa_psk`.
