@@ -2,7 +2,7 @@
 - Affected Product: `Tenda AC5 v3 (firmware V02.03.01.111_multi)`
 - Vulnerability Class: `CWE-121` (`Stack-based Buffer Overflow`) / `CWE-787` (`Out-of-bounds Write`)
 - Component: `/goform/setWifi` endpoint, `wifiPwd` POST parameter
-- CVSS 3 Score: `9.0 (Critical)` — `CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H`
+- CVSS 3 Score: `9.9 (Critical)` — `CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H`
 - `Privileges Required`: Authenticated (admin session) — the request requires a valid session `cookie` containing the `admin` credentials, so this is a `post-authentication vulnerability`, not pre-auth remote.
 
 **Description**
